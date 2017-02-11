@@ -28,6 +28,10 @@ public class MasterControl {
 		rawInputLines.addObserver(shifter);
 		resultLines.addObserver(alphabetizer);
 	}
+	
+	public List<String> run(List<String> input, Set<String> ignoredWords, Set<String> requiredWords) {
+		return null;
+	}
 
 	public List<String> run(List<String> input, Set<String> ignoredWords) {
 		rawInputLines.clearLines();
