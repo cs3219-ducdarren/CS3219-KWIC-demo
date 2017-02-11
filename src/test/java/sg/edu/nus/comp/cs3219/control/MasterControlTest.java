@@ -56,8 +56,8 @@ public class MasterControlTest {
 		result = master.run(input, ignoreWords, requiredWords);
 		assertEquals(3, result.size());
 		assertEquals("Day after Tomorrow the", result.get(0));
-		assertEquals("Day Groundhog", result.get(2));
-		assertEquals("Man of Steel", result.get(3));
+		assertEquals("Day Groundhog", result.get(1));
+		assertEquals("Man of Steel", result.get(2));
 	}
 	
 	@Test
