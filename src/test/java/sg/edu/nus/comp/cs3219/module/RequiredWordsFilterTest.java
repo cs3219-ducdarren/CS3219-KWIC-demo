@@ -41,6 +41,6 @@ public class RequiredWordsFilterTest {
 		
 		// test results
 		assertEquals(1, afterRequiredWordsFilter.size());
-		assertEquals("Day after Tomorrow the", afterRequiredWordsFilter.get(0).toString());
+		assertEquals("Day after Tomorrow The", afterRequiredWordsFilter.get(0).toString());
 	}
 }
