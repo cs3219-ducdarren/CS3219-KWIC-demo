@@ -38,22 +38,26 @@ public class MasterControlTest {
 		input.add("The Day after Tomorrow");
 		input.add("Fast and Furious");
 		input.add("Man of Steel");
+		input.add("Groundhog Day");
 
 		// Testing standard KWIC behaviors
 		List<String> result = master.run(input, ignoreWords);
-		assertEquals(6, result.size());
+		assertEquals(8, result.size());
 		assertEquals("Day after Tomorrow the", result.get(0));
-		assertEquals("Fast and Furious", result.get(1));
-		assertEquals("Furious Fast and", result.get(2));
-		assertEquals("Man of Steel", result.get(3));
-		assertEquals("Steel Man of", result.get(4));
-		assertEquals("Tomorrow the Day after", result.get(5));
+		assertEquals("Day Groundhog", result.get(1));
+		assertEquals("Fast and Furious", result.get(2));
+		assertEquals("Furious Fast and", result.get(3));
+		assertEquals("Groundhog Day", result.get(4));
+		assertEquals("Man of Steel", result.get(5));
+		assertEquals("Steel Man of", result.get(6));
+		assertEquals("Tomorrow the Day after", result.get(7));
 		
 		// Testing KWIC with required words behaviors
 		result = master.run(input, ignoreWords, requiredWords);
-		assertEquals(2, result.size());
+		assertEquals(3, result.size());
 		assertEquals("Day after Tomorrow the", result.get(0));
-		assertEquals("Man of Steel", result.get(1));
+		assertEquals("Day Groundhog", result.get(2));
+		assertEquals("Man of Steel", result.get(3));
 	}
 	
 	@Test
