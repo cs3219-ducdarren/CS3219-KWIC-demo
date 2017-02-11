@@ -29,7 +29,7 @@ public class RequiredWordsFilter implements Observer {
 		case ADD:
 			Line line = storage.get(event.getChangedLine());
 			if (isRequiredWordFirst(line)) {
-				addToResult(line);
+				// addToResult(line);
 			} else {
 				// do nothing
 			}
