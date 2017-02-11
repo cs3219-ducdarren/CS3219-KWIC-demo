@@ -30,7 +30,7 @@ public class MasterControl {
 	}
 	
 	public List<String> run(List<String> input, Set<String> ignoredWords, Set<String> requiredWords) {
-		return null;
+		return run(input, ignoredWords);
 	}
 
 	public List<String> run(List<String> input, Set<String> ignoredWords) {
