@@ -21,6 +21,10 @@ public class MasterControlTest {
 
 	@Test
 	public void testExample1() {
+		Set<String> requiredWords = new HashSet<>();
+		requiredWords.add("Man");
+		requiredWords.add("Day");
+		
 		Set<String> ignoreWords = new HashSet<>();
 		ignoreWords.add("is");
 		ignoreWords.add("the");
@@ -35,8 +39,8 @@ public class MasterControlTest {
 		input.add("Fast and Furious");
 		input.add("Man of Steel");
 
+		// Testing standard KWIC behaviors
 		List<String> result = master.run(input, ignoreWords);
-
 		assertEquals(6, result.size());
 		assertEquals("Day after Tomorrow the", result.get(0));
 		assertEquals("Fast and Furious", result.get(1));
@@ -44,6 +48,12 @@ public class MasterControlTest {
 		assertEquals("Man of Steel", result.get(3));
 		assertEquals("Steel Man of", result.get(4));
 		assertEquals("Tomorrow the Day after", result.get(5));
+		
+		// Testing KWIC with required words behaviors
+		result = master.run(input, ignoreWords, requiredWords);
+		assertEquals(2, result.size());
+		assertEquals("Day after Tomorrow the", result.get(0));
+		assertEquals("Man of Steel", result.get(1));
 	}
 	
 	@Test
