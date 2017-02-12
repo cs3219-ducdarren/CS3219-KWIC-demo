@@ -40,7 +40,9 @@ public class RequiredWordsFilter implements Observer {
 	}
 	
 	private boolean isRequiredWordFirst(Line line) {
-		return requiredWords.contains(line.getWord(0));
+		// empty required list means anything is permitted
+		String key = line.getWord(0);
+		return requiredWords.isEmpty() || requiredWords.contains(key) || requiredWords.contains(key.toLowerCase());
 	}
 	
 	private void addToResult(Line line) {
