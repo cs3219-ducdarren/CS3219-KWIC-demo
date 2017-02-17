@@ -13,12 +13,21 @@ public class RequiredWordsFilter implements Observer {
 	final private LineStorage resultStorage;
 	private Set<String> requiredWords = new HashSet<>();
 
+	private boolean isEmpty;
+	
 	public RequiredWordsFilter(LineStorage storage) {
 		resultStorage = storage;
 	}
 	
 	public void setRequiredWords(Set<String> requiredWordSet) {
 		requiredWords = requiredWordSet;
+		isEmpty = true;
+		for(String s : requiredWords) {
+			if (!s.equals("")) {
+				isEmpty = false;
+				break;
+			}
+		}
 	}
 
 	@Override
@@ -42,7 +51,8 @@ public class RequiredWordsFilter implements Observer {
 	private boolean isRequiredWordFirst(Line line) {
 		// empty required list means anything is permitted
 		String key = line.getWord(0);
-		return requiredWords.isEmpty() || requiredWords.contains(key) || requiredWords.contains(key.toLowerCase());
+		System.out.println(requiredWords);
+		return isEmpty || requiredWords.contains(key) || requiredWords.contains(key.toLowerCase());
 	}
 	
 	private void addToResult(Line line) {
